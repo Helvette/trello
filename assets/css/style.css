@@ -28,6 +28,42 @@ li {
 	display: inline-block;
 }
 
-#invisible {
-	display: none;
+#div-boxes{
+	padding: 20px;
+	vertical-align: top;
+}
+
+#add-list {
+	width: 270px;
+	height: 40px;
+	background-color: red;
+	margin: 0;
+	vertical-align: top;
+	display: inline-block;
+}
+
+h4 {
+	display: block;
+	margin: 0;
+	line-height: 40px;
+	padding: 0 10px;
+}
+
+.invisible {
+	display: inline-block;
+	vertical-align: top;
+	width: 270px;
+	height: auto;
+	padding: 4px;
+}
+
+.invisible input {
+	width: 262px;
+	padding: 7px;
+	line-height: 18px;
+	margin-bottom: 5px;
+}
+
+.add-card {
+	color: blue;
 }
