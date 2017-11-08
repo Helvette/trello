@@ -7,24 +7,36 @@
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+
+	<!-- Barra de navegación -->
 	<nav>
-		<button>ícono Tablero</button>
+		<button id="first"><i class="fa fa-trello" aria-hidden="true"></i> Tableros</button>
+
 		<input type="text">
+		
+		<!-- Título de la página -->
+		<a href="#"><h1><i class="fa fa-trello" aria-hidden="true"></i> Trello</h1></a>
 
-		<h1>Trello</h1>
-
-		<button></button>
-		<button></button>
-		<button></button>
-		<img src="" alt="Foto de perfil">
+		<ul>
+			<!-- Botón + -->
+			<li><button><i class="fa fa-plus" aria-hidden="true"></i></button></li>
+			<!-- Botón info -->
+			<li><button><i class="fa fa-info-circle" aria-hidden="true"></i></button></li>
+			<!-- Botón campana -->
+			<li><button><i class="fa fa-bell" aria-hidden="true"></i></button></li>
+			<!-- Foto de perfil -->
+			<li><img src="assets/images/profile-photo.jpg" alt="Foto de perfil"></li>
+		</ul>
 	</nav>
+	
+	<!-- Barra bajo la de navegación -->
 	<div id="sub-nav">
 		<ul>
-			<li>Título del Trello </li>
-			<li>ícono estrella</li>
+			<li>Tablero Reto de Código</li>
+			<li><i class="fa fa-star" aria-hidden="true"></i></li>
 			<li>Vida Privada</li>
-			<li>Privado</li>
-			<li>--- Mostrar menú</li>
+			<li><i class="fa fa-lock" aria-hidden="true"></i> Privado</li>
+			<li>··· <span>Mostrar menú</span></li>
 		</ul>
 	</div>
 	
@@ -38,7 +50,10 @@
 		</div>
 	</div>
 
+
 	<!-- Link al archivo CSS -->
 	<script type="text/javascript" src="assets/js/app.js"></script>
+	<!-- Link íconos -->
+	<script src="https://use.fontawesome.com/69bfbe7ab9.js"></script>
 </body>
 </html>
