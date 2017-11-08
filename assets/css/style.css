@@ -6,7 +6,6 @@ body {
 	margin: 0;
 	background-color: #9a0d29;
 	font-family: Helvetica, Arial, sans-serif;
-	height: 100vh;
 }
 
 /* Barra de navegación arriba */
@@ -19,14 +18,22 @@ nav {
 /*Título */
 nav h1 {
 	display: inline-block;
+	font-family: 'Yellowtail', cursive;
 	color: #ceadb3;
 	margin: 0;
 	padding: 0;
+	font-weight: normal;
+	font-size: 30px;
+}
+
+nav h1 .fa {
+	font-size: 22px;
 }
 
 nav a {
 	line-height: 40px;
 	margin-left: 600px;
+	position: absolute;
 }
 
 nav a:hover {
@@ -115,6 +122,7 @@ nav img {
 #sub-nav {
 	height: 45px;
 	clear: both;
+	background-color: #9a0d29;
 }
 
 #sub-nav ul {
@@ -173,8 +181,6 @@ nav img {
 #div-boxes{
 	padding: 10px;
 	vertical-align: top;
-	min-height: 400px;
-	height: 100%;
 	background-color: #9a0d29;
 }
 
