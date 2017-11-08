@@ -4,66 +4,322 @@
 
 body {
 	margin: 0;
+	background-color: #9a0d29;
+	font-family: Helvetica, Arial, sans-serif;
 }
 
+/* Barra de navegación arriba */
 nav {
 	width: 100%;
-	height: 50px;
-	background-color: blue;
+	height: 40px;
+	background-color: #6d091d;
+	color: white;
 }
-
+/*Título */
 nav h1 {
 	display: inline-block;
+	color: #ceadb3;
+	margin: 0;
+	padding: 0;
 }
 
-ul {
+nav a {
+	line-height: 40px;
+	margin-left: 615px;
+}
+
+nav a:hover {
+	opacity: 0.7;
+}
+
+/* Primer botón */
+nav #first {
+	margin-left: 10px;
+	position: absolute;
+}
+/* botones */
+nav button {
+	line-height: 30px;
+	color: #eee3e5;
+	background-color: #ad7683;
+	border: none;
+	padding: 0 10px;
+	margin: 5px 5px 5px 0;
+	font-weight: bold;
+	font-size: 14px;
+	border-radius: 3px;
+}
+
+button .fa-trello {
+	font-size: 19px;
+	color: white;
+	margin-right: 5px;
+}
+
+button .fa {
+	color: white;
+}
+
+button:hover {
+	cursor: pointer;
+	background-color: #90626E;
+}
+
+nav button:focus {
+	outline: none;
+}
+
+nav ul {
+	float: right;
+	margin: 0 5px 0 0;
+	padding: 0;
 	list-style: none;
-	padding-top: 50px;
-	height: 50px;
+}
+
+nav li {
+	float: left;
+	margin: 0;
+}
+
+nav input {
+	line-height: 30px;
+	background-color: #ad7683;
+	border: none;
+	border-radius: 3px;
+	padding: 0;
+	position: absolute;
+	margin-top: 5px;
+	margin-left: 122px;
+}
+
+nav input:focus {
+	outline: none;
+}
+
+/* Foto de perfil */
+nav img {
+	max-width: 30px;
+	border-radius: 50%;
+	display: block;
+	margin: 5px;
+	line-height: 30px;
+	cursor: pointer;
+}
+
+/*
+-------------------------------
+------------------------------- 
+ Barra bajo la de navegación */
+#sub-nav {
+	height: 45px;
+	clear: both;
+}
+
+#sub-nav ul {
+	list-style: none;
+	height: 45px;
 	margin-top: 0;
 	padding: 8px;
+	margin-left: 10px;
 }
 
-li {
-	display: inline-block;
+#sub-nav li {
+	float: left;
+	margin-right: 5px;
+	line-height: 30px;
+	font-size: 14px;
+	font-weight: 400;
+	color: #f6f6f6;
+	border-radius: 3px;
+	padding: 0 10px;
 }
 
+#sub-nav li .fa {
+	font-size: 12px;
+}
+
+#sub-nav li .fa-lock {
+	margin-right: 5px;
+}
+
+#sub-nav li:first-child {
+	font-size: 18px;
+	line-height: 30px;
+	font-weight: bold;
+	padding: 0 5px;
+}
+
+#sub-nav li:last-child {
+	float: right;
+}
+
+#sub-nav span {
+	text-decoration: underline;
+	margin-left: 5px;
+}
+
+#sub-nav li:hover {
+	cursor: pointer;
+	background-color: #6d091d;
+}
+
+
+/* 
+-------------------------------
+------------------------------- 
+ Tablero */
 #div-boxes{
-	padding: 20px;
+	padding: 10px;
 	vertical-align: top;
+	min-height: 580px;
+	background-color: #9a0d29;
 }
 
-#add-list {
+#add-list {;  /* Añade una lista */
+	background-color: #820921;
+	display: inline-block;
+	vertical-align: top;
+	border-radius: 2px;
 	width: 270px;
 	height: 40px;
-	background-color: red;
-	margin: 0;
-	vertical-align: top;
-	display: inline-block;
+	margin: 0 7px;
+}
+
+#add-list:hover {
+	background-color: #6d091d;
+	cursor: pointer;
 }
 
 h4 {
 	display: block;
+	color: #EBD7D1;
+	font-weight: 400;
+	font-size: 14px;
 	margin: 0;
 	line-height: 40px;
-	padding: 0 10px;
+	padding: 0 15px;
 }
 
-.invisible {
+.invisible { /* div contenedor del input, textarea, tarjetas, etc */
 	display: inline-block;
 	vertical-align: top;
+	background-color: #E1E3E6;
+	border-radius: 2px;
 	width: 270px;
 	height: auto;
-	padding: 4px;
+	padding: 0;
+	margin: 0 7px;
+
 }
 
-.invisible input {
+.invisible input { /* Input de Añade una lista */
+	background-color: #D6D7DA;
+	box-shadow: inset 0 1px 8px #AEAEAF;
+	border: 1px solid #aaa;
+	border-radius: 3px;
 	width: 262px;
 	padding: 7px;
 	line-height: 18px;
-	margin-bottom: 5px;
+	margin: 4px 4px 5px 4px;
+	font-family: Helvetica, Arial, sans-serif;
+	color: #333;
 }
 
-.add-card {
-	color: blue;
+.invisible input:focus {
+	outline: none;
+}
+
+.invisible button { /* Botones del .invisible */
+	background-color: #5AAC44;
+	padding: 4px 16px;
+	border-radius: 3px;
+	border: none;
+	color: white;
+	font-family: Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	font-size: 15px;
+	line-height: 22px;
+	box-shadow: 0 1px 0 #519839;
+	margin-left: 4px;
+	margin-right: 10px;
+	margin-bottom: 7px;
+}
+
+.invisible button:hover {
+	background-color: #309931;
+}
+
+.invisible .fa {  /* Botón de X cerrar */
+	color: #555;
+	margin-left: 7px;
+	font-size: 20px;
+	padding: 6px 8px;
+}
+
+.times:hover {
+	cursor: pointer;
+	color: #333;
+}
+
+.title {  /* Título de cada lista */
+	color: #363636;
+	margin: 0;
+	padding: 10px 5px 10px 10px;
+	max-width: 225px;
+	word-wrap: break-word;
+	font-size: 14px;
+	line-height: 18px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.add-card {  /* "Añadir una tarjeta..." */
+	color: #777;
+	margin: 0;
+	display: block;
+	line-height: 33px;
+	font-size: 14px;
+	padding: 0 7px;
+	border-bottom-right-radius: 3px;
+	border-bottom-left-radius: 3px;
+}
+
+.add-card:hover {
+	cursor: pointer;
+	background-color: #C1C3C5;
+	text-decoration: underline;
+}
+
+.invisible textarea {  /* textarea */
+	border: none;
+	resize: none;
+	min-height: 70px;
+	margin: 0 7px;
+}
+
+.invisible textarea:focus {
+	outline: none;
+}
+
+.invisible textarea, .add {
+	background-color: white;
+	border-radius: 3px;
+	width: 256px;
+	padding: 7px;
+	font-family: Helvetica, Arial, sans-serif;
+	word-wrap: break-word;
+	box-shadow: 0 1px 0 #CCC;
+	color: #4d4d4d;
+	font-size: 14px;
+	line-height: 18px;
+}
+
+.add {  /* Tarjetas! */
+	height: auto;
+	margin: 0 7px 7px 7px;
+}
+
+.add:hover {
+	background-color: #CECFD0;
+	cursor: pointer;
 }
