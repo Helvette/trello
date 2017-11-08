@@ -18,13 +18,38 @@ addList.addEventListener("click", function(){
 	input.setAttribute("placeholder", "Añadir una lista...");
 	input.setAttribute("type", "text");
 	invisible.appendChild(input);
+	input.focus();
 
 	// Crear el botón e inyectarlo
 	var buttonSave = document.createElement("button");
 	var save = document.createTextNode("Guardar");
 	buttonSave.appendChild(save);
 	buttonSave.classList.add("btn");
+	buttonSave.setAttribute("disabled", "disabled");
 	invisible.appendChild(buttonSave);
+
+	// Crear el ícono e inyectarlo
+	var close = document.createElement("i");
+	close.classList.add("fa", "fa-times", "times");
+	invisible.appendChild(close);
+
+	// Al hacer click en el ícono de cerrar
+	close.addEventListener("click", function(){
+		divBoxes.removeChild(invisible);
+		addList.style.display = "inline-block";
+	});
+
+	// Para que no se pueda guardar el título de la lista si está vacío
+	input.addEventListener("keyup", function(){
+		var large = input.value
+		large = large.length;
+		if (large > 0){
+			buttonSave.removeAttribute("disabled");
+		}
+		if (large === 0){
+			buttonSave.setAttribute("disabled", "disabled");
+		}
+	});
 
 	// Función para guardar lo escrito en el input
 	buttonSave.addEventListener("click", function (){
@@ -38,13 +63,14 @@ addList.addEventListener("click", function(){
 		// Quitar input, botón  e ícono
 		input.style.display = "none";
 		buttonSave.style.display = "none";
+		close.style.display = "none"
 		// Agregar "Añadir una tarjeta"
 		var addCard = document.createElement("p");
 		var contentAddCard = document.createTextNode("Añadir una tarjeta...")
 		addCard.appendChild(contentAddCard);
-		invisible.appendChild(addCard);
 		// Darle clase a "Añadir una tarjeta" para editar su estilo en el CSS
 		addCard.classList.add("add-card");
+		invisible.appendChild(addCard);
 
 		/* Que el botón de Añadir lista vuelva a aparecer luego de guardar e
 		inyectar el texto ingresado en el input */
@@ -58,29 +84,47 @@ addList.addEventListener("click", function(){
 			// Crear textarea
 			var textarea = document.createElement("textarea");
 			invisible.appendChild(textarea);
+			textarea.focus();
+			// Crear botón
 			var buttonAdd = document.createElement("button");
 			var add = document.createTextNode("Añadir");
 			buttonAdd.appendChild(add);
 			invisible.appendChild(buttonAdd);
+			// Crear ícono 
+			var closeTwo = document.createElement("i");
+			closeTwo.classList.add("fa", "fa-times", "times");
+			invisible.appendChild(closeTwo);
 
+			// Función para que el textarea se agrande automáticamente en base a su contenido
+			textarea.addEventListener("keydown", function(){
+			  var el = this;
+			  setTimeout(function(){
+			    el.style.cssText = 'height:auto; padding:0';
+			    el.style.cssText = 'height:' + el.scrollHeight + 'px';
+			  },0);
+			})
+
+			// Si se hace click en el botón
 			buttonAdd.addEventListener("click", function(){
 				var card = document.createElement("p");
 				var contentCard = document.createTextNode(textarea.value);
 				card.appendChild(contentCard);
-				invisible.insertBefore(card, textarea);
+				card.classList.add("add");
+				invisible.insertBefore(card, addCard);
 
 				// Limpiar textarea
 				textarea.value = "";
-			}); 
+				textarea.focus();
+			});
+
+			// Si se hace click en la equis
+			closeTwo.addEventListener("click", function(){
+				invisible.removeChild(textarea);
+				invisible.removeChild(buttonAdd);
+				invisible.removeChild(closeTwo);
+				addCard.style.display = "block"
+			});
 		});
 	});
 })
-
-
-// AGREGAR QUE SI SE DA CLICK EN LA CRUZ, DESAPAREZCA EL TEXTAREA, LOS BOTONES
-// Y ADEMÁS, QUE APAREZCA AÑADIR UNA TARJETA DE NUEVO :) 
-// var addCard = document.getElementsByClassName("add-card")[0];
-
-
-
 
