@@ -6,6 +6,7 @@ body {
 	margin: 0;
 	background-color: #9a0d29;
 	font-family: Helvetica, Arial, sans-serif;
+	height: 100vh;
 }
 
 /* Barra de navegación arriba */
@@ -25,7 +26,8 @@ nav h1 {
 
 nav a {
 	line-height: 40px;
-	margin-left: 615px;
+	margin-left: 600px;
+	clear: both;
 }
 
 nav a:hover {
@@ -86,10 +88,11 @@ nav input {
 	background-color: #ad7683;
 	border: none;
 	border-radius: 3px;
-	padding: 0;
+	padding: 0 5px;
 	position: absolute;
 	margin-top: 5px;
 	margin-left: 122px;
+	color: #eee3e5;
 }
 
 nav input:focus {
@@ -172,6 +175,7 @@ nav img {
 	padding: 10px;
 	vertical-align: top;
 	min-height: 400px;
+	height: 100%;
 	background-color: #9a0d29;
 }
 
@@ -208,7 +212,7 @@ h4 {
 	width: 270px;
 	height: auto;
 	padding: 0;
-	margin: 0 7px;
+	margin: 0 7px 30px 7px;
 
 }
 
@@ -295,6 +299,8 @@ h4 {
 	resize: none;
 	min-height: 70px;
 	margin: 0 7px;
+	padding: 7px;
+	overflow: hidden;
 }
 
 .invisible textarea:focus {
