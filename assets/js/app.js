@@ -24,7 +24,7 @@ addList.addEventListener("click", function(){
 	var buttonSave = document.createElement("button");
 	var save = document.createTextNode("Guardar");
 	buttonSave.appendChild(save);
-	buttonSave.classList.add("btn");
+	// buttonSave.classList.add("btn");
 	buttonSave.setAttribute("disabled", "disabled");
 	invisible.appendChild(buttonSave);
 
@@ -57,9 +57,13 @@ addList.addEventListener("click", function(){
 		title.classList.add("title");
 		var content = input.value;
 		content = document.createTextNode(content);
+		var config = document.createElement("span");
+		var configContent = document.createTextNode("···");
+		config.appendChild(configContent);
 		// Inyectando el value del input al div
 		title.appendChild(content);
 		invisible.insertBefore(title, input);
+		invisible.appendChild(config);
 		// Quitar input, botón  e ícono
 		input.style.display = "none";
 		buttonSave.style.display = "none";
@@ -75,6 +79,39 @@ addList.addEventListener("click", function(){
 		/* Que el botón de Añadir lista vuelva a aparecer luego de guardar e
 		inyectar el texto ingresado en el input */
 		addList.style.display = "inline-block"
+
+		// Para cambiar el título
+		title.addEventListener("click", function(){
+			title.style.display = "none";
+			input.style.display = "inline-block";
+			input.focus();
+			input.style.width = "220px";
+			input.style.height = "auto";
+			input.style.backgroundColor = "white";
+			input.style.fontWeight = "bold";
+			input.style.boxShadow = "none";
+			input.style.marginTop = "3px";
+			input.style.paddingTop = "6px";
+			input.style.paddingBottom = "6px";
+			input.style.fontSize = "14px";
+			input.style.marginLeft = "3px";
+			input.style.paddingLeft = "6px";
+
+			// En caso de salirse del input 
+			input.addEventListener("focusout", function (){
+				title.textContent = input.value;
+				input.style.display = "none";
+				title.style.display = "inline-block";
+			});
+			// Guardar el nuevo título
+			input.addEventListener("keyup", function(){
+				if (event.keyCode == 13){
+					input.style.display = "none";
+					title.textContent = input.value;
+					title.style.display = "inline-block";
+				}
+			});
+		});
 
 		// Función para agregar tarjetas
 		addCard.addEventListener("click", function(){
@@ -102,19 +139,21 @@ addList.addEventListener("click", function(){
 			    el.style.cssText = 'height:auto; padding:0';
 			    el.style.cssText = 'height:' + el.scrollHeight + 'px';
 			  },0);
-			})
+			});
 
 			// Si se hace click en el botón
 			buttonAdd.addEventListener("click", function(){
-				var card = document.createElement("p");
-				var contentCard = document.createTextNode(textarea.value);
-				card.appendChild(contentCard);
-				card.classList.add("add");
-				invisible.insertBefore(card, addCard);
+				if (textarea.value.length > 0){
+					var card = document.createElement("p");
+					var contentCard = document.createTextNode(textarea.value);
+					card.appendChild(contentCard);
+					card.classList.add("add");
+					invisible.insertBefore(card, addCard);
 
-				// Limpiar textarea
-				textarea.value = "";
-				textarea.focus();
+					// Limpiar textarea
+					textarea.value = "";
+					textarea.focus();
+				}
 			});
 
 			// Si se hace click en la equis
@@ -122,9 +161,9 @@ addList.addEventListener("click", function(){
 				invisible.removeChild(textarea);
 				invisible.removeChild(buttonAdd);
 				invisible.removeChild(closeTwo);
-				addCard.style.display = "block"
+				addCard.style.display = "block";
 			});
 		});
 	});
-})
+});
 
