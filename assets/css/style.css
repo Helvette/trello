@@ -206,6 +206,8 @@ nav input:focus {
 	width: 270px;
 	height: 40px;
 	margin: 0 7px;
+	transition-duration: 0.2s;
+	/*transition-delay: 0.1s;*/
 }
 
 #add-list:hover {
